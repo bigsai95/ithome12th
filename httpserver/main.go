@@ -29,7 +29,7 @@ func main() {
 	logrus.Info("http server start")
 
 	//GRPC 連線
-	grpconn, err := grpc.Dial(":8081", grpc.WithInsecure())
+	grpconn, err := grpc.Dial("gs:8081", grpc.WithInsecure())
 	if err != nil {
 		logrus.Fatalf("grpc create error: %v", err)
 	}
