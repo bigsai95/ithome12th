@@ -40,3 +40,11 @@ func LoginUser(username, userpwd string) bool {
 	}
 	return result
 }
+
+func UserList() []string {
+	res, err := grpcClient.UsersList(context.Background(), &pb.UsersListRequest{})
+	if err != nil {
+		logrus.Fatalf("UsersList Error: %v", err)
+	}
+	return res.UserName
+}

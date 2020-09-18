@@ -58,5 +58,6 @@ func webserver() {
 	http.HandleFunc("/ping", ping)
 	http.HandleFunc("/user/add", userAdd)
 	http.HandleFunc("/user/login", userLogin)
+	http.HandleFunc("/user/list", userList)
 	logrus.Fatal(http.ListenAndServe(":8080", nil))
 }

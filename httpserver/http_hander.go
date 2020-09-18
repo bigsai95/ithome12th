@@ -80,3 +80,14 @@ func userLogin(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Write([]byte("Received Put request"))
 }
+
+func userList(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case "GET": //使用Get使用者例表
+		list := UserList()
+		jsonStr, _ := json.Marshal(list)
+		w.Write([]byte(jsonStr))
+		return
+	}
+	w.Write([]byte("Received Get request"))
+}
