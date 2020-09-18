@@ -1,4 +1,4 @@
-./grpcserver/grpcserver
-./httpserver/httpserver
+grpcserver/grpcserver
+httpserver/httpserver
 .vscode
 
