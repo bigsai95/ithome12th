@@ -1,0 +1,28 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: hs
+  namespace: dev-ithome
+spec:
+  selector:
+    matchLabels:
+      app: hs
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hs
+    spec:
+      containers:
+      - name: hs
+        image: gcr.io/xxxxx/myhttpserver:v1.0.1
+        imagePullPolicy: Always
+        env:
+        - name: AppEnv 
+          value: "dev"              
+        ports:
+        - name: hs-port
+          containerPort: 8080
+        livenessProbe:
+          tcpSocket:
+            port: 8080 

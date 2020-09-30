@@ -1,0 +1,29 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: gs
+  namespace: dev-ithome
+spec:
+  selector:
+    matchLabels:
+      app: gs
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gs
+    spec:
+      containers:
+      - name: gs
+        image: gcr.io/xxxxx/mygrpcserver:v1.0.0
+        imagePullPolicy: Always
+        env:
+        - name: AppEnv
+          value: "dev"      
+        ports:
+        - name: gs-port
+          containerPort: 8081
+        livenessProbe:
+          tcpSocket:
+            port: 8081 
+

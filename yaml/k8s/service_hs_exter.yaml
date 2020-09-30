@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hs-exter
+  namespace: dev-ithome
+spec:
+  type: LoadBalancer
+  loadBalancerIP: "YOUR-IP"  
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    app: hs
