@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: k8swatch
-        image: gcr.io/xxxxx/myk8swatch:v1.3.14
+        image: gcr.io/xxxxx/myk8swatch:v1.0.0
         imagePullPolicy: Always
 
 
