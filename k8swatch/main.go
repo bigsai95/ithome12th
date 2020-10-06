@@ -39,13 +39,13 @@ const (
 func main() {
 	osc := make(chan os.Signal, 1)
 
-	logrus.Info("k8s watch start")
 	logrus.SetFormatter(&logrus.JSONFormatter{
 		FieldMap: logrus.FieldMap{
 			logrus.FieldKeyLevel: "severity",
 		},
 	})
 	logrus.SetOutput(os.Stdout)
+	logrus.Info("k8s watch start")
 
 	setTgBotApi()
 	setK8SClient()
